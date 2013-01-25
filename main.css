@@ -1,0 +1,104 @@
+body{
+    background: #4D4D4D;
+    margin: auto;
+    font-family: sans-serif; 
+    color: #CCCCCC;
+    
+}
+
+h1{
+    font-size: 40pt; 
+    color: #CCCCCC;
+}
+
+h2{
+    color: #FFFFFF;
+    font-size: 15pt;
+    padding: 0;
+}
+
+a{
+    color:#FFFFFF;
+}
+
+.hover{
+    color:#DDDDDD;
+}
+
+.input{
+    border: 0;
+}
+
+#navigation{
+    position: relative;
+    float: right;
+    height: 15px;
+}
+
+#map{
+    width: 60%;
+    height: 400px;
+    border: 1px solid #FFF;
+    margin: auto;
+    position: relative;
+    float: left;
+}
+
+#attractions{
+    width: 35%;
+    position: relative;
+    float: right;
+}
+
+#place_search{
+    margin:auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#login_box{
+    position: relative;
+    margin: auto;
+    width: 400px;
+}
+
+#register_box{
+    position: relative;
+    width: 400px;
+    margin: auto;
+}
+
+
+.user{
+    -moz-box-shadow:inset 0 1px 0 0 #ffffff;
+    -webkit-box-shadow:inset 0 1px 0 0 #ffffff;
+    box-shadow:inset 0 1px 0 0 #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0 #ffffff;
+}
+
+.user:hover{
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+    background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}
+
+.user:active{
+    position:relative;
+    top:1px;
+}
