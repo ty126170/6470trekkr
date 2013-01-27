@@ -14,7 +14,7 @@ session_start();
   </head>
   <body>
         <h1>Trekkr</h1>
-	<b>login to your trekkr account here!</b>
+	<div id="header">Login to your Trekkr Account here!</div>
 	
 	<?php
 	if ($_SESSION['loggedin']) {
@@ -52,13 +52,12 @@ session_start();
 	if (!$success) {	// show form
 	?>
         <div id="login_box">
-	<br/>
             <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
                 Username: <input type="text" name="username" id="username"><br>
                 Password: <input type="password" name="password" id="password">
-	    <input type="submit" name="login_button" value="login" class="user" /><a href="register.php">register</a>
+	    <input type="submit" name="login_button" value="login" class="user" /><a href="register.php">Register</a>
             </form>
-            
+           
 	    <?php }?>
         </div>
     </body>

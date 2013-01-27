@@ -11,15 +11,16 @@ session_start();
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
     <script src="map.js"></script>
+    <script src="profile.js"></script>
   </head>
 
   <body>
         <h1>Trekkr</h1>
-	<b>create personalize go see upload share - by mjwang and ty12</b>
+	<div id="header">create personalize go see upload share - by mjwang and ty12</div>
 
 	<div id="navigation">
 	<?php
-	if ($_SESSION['loggedin']) {
+	if ($_SESSION['loggedin']) { // IF LOGGED IN
 		echo "<strong>Welcome " .$_SESSION['username'] ."!</strong>";
 	?>
             <a href="home.php">New Trek</a> | My Treks | <a href="logout.php">Logout</a>
@@ -27,8 +28,15 @@ session_start();
 	
 	<div id="user_profile">
 	<br/>
-	<img border="0" src="/demo_profile.jpg" alt="demo_profile_fail?" width="304" height="228">
+	<form>
+	<input type="file" name="datafile" /></br>
+	<input type="image" id="user_pfpic" border="0" src="/demo_profile1.jpg" alt="add profile picture - MAKE THIS A FUNCTION <a>" value="upload" onmouseover="mouseOverImage()" onmouseout="mouseOutImage()" onclick="mouseClicked(this.form,'http://localhost/profile.php','invisible'); return false;" width="150" height="240" >
+	<div id="invisible"></div>
+	</form>
 
+	</div>
+
+	<div id="album_upload">
 	<?php
 	$upload_success = false;
 	// check if upload attempt
@@ -43,7 +51,7 @@ session_start();
 	echo "Upload success <br/><br/>";	
 	$upload_success = true;
 	}
-	else {} // SOMETHING
+	else {} // no upload event???
 
 	if (!$upload_success) {
 	?>
@@ -63,8 +71,7 @@ session_start();
 
 <?php
 	}
-	else { 
-		// auto redirect to login page, since user not logged in
+	else { // ELSE: NOT LOGGED IN. auto redirect to login page
 		header('location:login.php');
 	}
 	?>

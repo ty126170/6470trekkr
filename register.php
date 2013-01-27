@@ -14,7 +14,7 @@ session_start();
   </head>
   <body>
         <h1>Trekkr</h1>
-	<b>register a new trekkr account to save treks and share photos!</b>
+	<div id="header">Register a New Trekkr Account to Save Treks and Share Photos!</div>
 	
 	<?php
 	if ($_SESSION['loggedin']) {
@@ -55,9 +55,7 @@ session_start();
 	if (!$success) {
 	?>
 
-	<div id="register_box">
-	<br/>
-	<br/>
+	<div id="login_box">
 	<form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
 		Username: <input type="text" name="username" /><br/>
 		Password: <input type="password" name="password" /><br/>
