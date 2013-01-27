@@ -14,6 +14,7 @@ session_start();
   </head>
   <body>
         <h1>Trekkr</h1>
+<<<<<<< HEAD
 	<div id="header">Register a New Trekkr Account to Save Treks and Share Photos!</div>
 	
 	<?php
@@ -66,7 +67,7 @@ session_start();
 	</div>
     </body>
 </html>
-
+=======
         <div id="header">Register a New Trekkr Account to Save Treks and Share Photos!</div>
         
     	<?php
@@ -120,3 +121,4 @@ session_start();
     	</div>
     </body>
 </html>
+>>>>>>> b9c47d477012d1a8043bebd5f7146bd8f91ada85

@@ -3,6 +3,8 @@ session_start();
 session_destroy();
 
 header('location:login.php');
-
+<<<<<<< HEAD
 ?>
-
+=======
+?>
+>>>>>>> b9c47d477012d1a8043bebd5f7146bd8f91ada85
