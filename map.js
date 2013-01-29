@@ -26,11 +26,12 @@ function place_submit(){
             });
             
             directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('direction_box'));
             
             var request = {
               location: results[0].geometry.location,
               radius: 800,
-              types: ['museum', 'park', 'aquarium', 'amusement_park', 'art_gallery', 'cafe', 'cemetery', 'bakery', 'establishment', 'zoo' ]
+              types: ['museum', 'park', 'aquarium', 'amusement_park', 'art_gallery', 'cafe', 'cemetery', 'bakery', 'zoo' ]
             };
         
             infowindow = new google.maps.InfoWindow();
@@ -62,6 +63,12 @@ function initialize() {
     
 }
 
+function view_directions(){
+    $("#attractions_box").hide();
+    $(".attraction_suggested").hide();
+    $("#directions_box").show();
+}
+
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         
@@ -71,7 +78,7 @@ function callback(results, status) {
         suggestedStops = [];
         
         //Suggest Top 6 Attractions as Trek Stops
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 3; i++) {
             //createMarker(results[i]);
             var newAttr = $("<div>").addClass("attraction_trip");
             var attrIcon = $("<img>").addClass("attraction_icon_home");
@@ -84,7 +91,7 @@ function callback(results, status) {
         }
         
         //Put rest of attractions in Suggested Stops
-        for (var j = 7; j < results.length; j++) {
+        for (var j = 4; j < results.length; j++) {
             var newAttr = $("<div>").addClass("attraction_suggested");
             var attrIcon = $("<img>").addClass("attraction_icon_home");
             var attrName = $("<div>").addClass("attraction_name").html(results[j].name);
@@ -145,7 +152,7 @@ function callback(results, status) {
             },
         	connectWith: ".sortableList",
             receive: function(event, ui){
-                if (trekStops.length > 9){
+                if (trekStops.length > 9 && startList == "attractions"){
                     $(ui.sender).sortable('cancel');
                     alert("Sorry, you can only have a maximum of 10 Trek Stops");
                 }  

@@ -1,3 +1,4 @@
+
 body{
     background: #4D4D4D;
     margin: auto;
@@ -54,11 +55,17 @@ a{
 }
 
 #attraction_box{
-    width: 23%;
+    width: 24%;
     height: 400px;
     position: relative;
     float: left;
-    padding-left: 10px;
+    padding-left: 5px;
+    margin-left: 5px;
+    background: #27272D;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    color: #4D4D4D;
 
 }
 
@@ -85,9 +92,18 @@ a{
 
 #trip{
     width: 100%;
-    height: 80%;
+    height: 85%;
     overflow: auto;
 
+}
+
+#direction_box{
+    height: 400px;
+    overflow: auto;
+    float: right;
+    width: 23%;
+    z-index: 2;
+    visibility: hidden;
 }
 
 #save_location{
