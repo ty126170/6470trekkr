@@ -98,12 +98,12 @@ a{
 }
 
 #direction_box{
+    display: none;
     height: 400px;
     overflow: auto;
     float: right;
     width: 23%;
     z-index: 2;
-    visibility: hidden;
 }
 
 #save_location{
