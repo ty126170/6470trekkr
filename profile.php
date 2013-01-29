@@ -1,20 +1,21 @@
 <?php
 session_start();
 
+$_SESSION['uploading_status']="";
 
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
-echo $_FILES["file"]["type"];
+
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/png")
 || ($_FILES["file"]["type"] == "image/pjpeg"))
-&& ($_FILES["file"]["size"] < 20000)
+&& ($_FILES["file"]["size"] < 1048576)
 && in_array($extension, $allowedExts))
   {
   if ($_FILES["file"]["error"] > 0)
     {
-    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+    $_SESSION['uploading_status']="File Error Return Code: " . $_FILES["file"]["error"] . "<br>";
     }
   else
     {
@@ -25,18 +26,29 @@ if ((($_FILES["file"]["type"] == "image/gif")
 
     if (file_exists("upload/" . $_FILES["file"]["name"]))
       {
-      echo $_FILES["file"]["name"] . " already exists. ";
+      $_SESSION['uploading_status']=$_FILES["file"]["name"] . " already exists";
       }
     else
       {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "upload/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+	if (!file_exists("upload/" .$_SESSION['username'])) {
+	   echo mkdir("upload/" .$_SESSION['username']); // make for each user a directory
+	}
+
+	// move uploaded photo from temp folder to ./upload/*user*/
+	if (move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" .$_SESSION['username'] ."/" .$_FILES["file"]["name"])) {
+	$_SESSION['uploading_status']=$_FILES["file"]["name"] ." successfully uploaded";
+	
+	// new profile pic location
+	$_SESSION['new_pfpic']="http://localhost/upload/" .$_SESSION['username'] ."/" .$_FILES["file"]["name"];
+	}
+
       }
     }
   }
 else
   {
-  echo "Invalid file";
+  	$_SESSION['uploading_status']=$_FILES["file"]["name"] ." is an invalid file; only gif, jpeg, png, and pjpeg allowed";
   }
+
+	header('location:mytreks.php');
 ?> 
